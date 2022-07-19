@@ -8,7 +8,9 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main></main>
+      <main>
+        
+      </main>
 
       <footer className='text-xs text-center'>
         Challenge by&nbsp;
