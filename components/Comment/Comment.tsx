@@ -1,4 +1,5 @@
 import React from "react";
+import Counter from "../Counter/Counter";
 
 export default function Comment() {
   return (
@@ -13,11 +14,7 @@ export default function Comment() {
         mollit irure ipsum dolor.
       </p>
       <div className='flex justify-between'>
-        <div className='flex justify-between gap-3 bg-light-gray py-2 px-4 rounded-xl'>
-          <button className='font-bold'>+</button>
-          <p className='text-moderate-blue'>12</p>
-          <button className='font-bold'>-</button>
-        </div>
+        <Counter value={12} />
         <button className='font-bold text-moderate-blue'>Reply</button>
       </div>
     </div>

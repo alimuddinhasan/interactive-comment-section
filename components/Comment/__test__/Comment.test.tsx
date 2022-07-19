@@ -4,6 +4,6 @@ import Comment from "../Comment";
 describe("Comment", () => {
   it("should render default Comment component", () => {
     render(<Comment />);
-    expect(screen.getByText("Counter")).toBeInTheDocument();
+    expect(screen.getByText("amyrobson")).toBeInTheDocument();
   });
 });
