@@ -1,3 +1,4 @@
+import Comment from "@/components/Comment/Comment";
 import Head from "next/head";
 
 export default function Home() {
@@ -9,7 +10,7 @@ export default function Home() {
       </Head>
 
       <main>
-        
+        <Comment />
       </main>
 
       <footer className='text-xs text-center'>
