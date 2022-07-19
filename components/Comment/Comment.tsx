@@ -2,21 +2,23 @@ import React from "react";
 
 export default function Comment() {
   return (
-    <div>
-      <div>Counter</div>
-      <div>
-        <div>
-          <div>User</div>
-          <div>Timestamp</div>
-          <button>Reply</button>
+    <div className='bg-very-light-gray flex flex-col gap-5 p-5 rounded-xl'>
+      <div className='flex gap-5'>
+        <p className='font-bold text-dark-blue'>amyrobson</p>
+        <p className='text-grayish-blue'>1 month ago</p>
+      </div>
+      <p className='text-grayish-blue'>
+        Ipsum enim culpa non laborum ullamco ad culpa veniam nostrud veniam id
+        ipsum velit. Aliqua laborum sint ex officia reprehenderit esse esse
+        mollit irure ipsum dolor.
+      </p>
+      <div className='flex justify-between'>
+        <div className='flex justify-between gap-3 bg-light-gray py-2 px-4 rounded-xl'>
+          <button className='font-bold'>+</button>
+          <p className='text-moderate-blue'>12</p>
+          <button className='font-bold'>-</button>
         </div>
-        <div>
-          Ipsum enim culpa non laborum ullamco ad culpa veniam nostrud veniam id
-          ipsum velit. Aliqua laborum sint ex officia reprehenderit esse esse
-          mollit irure ipsum dolor. Sunt aute aute anim sunt aute deserunt sint
-          do dolore. Ex occaecat consequat ex consequat reprehenderit culpa
-          aliqua officia.
-        </div>
+        <button className='font-bold text-moderate-blue'>Reply</button>
       </div>
     </div>
   );
