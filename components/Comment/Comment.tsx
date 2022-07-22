@@ -1,5 +1,7 @@
 import React from "react";
+import Button, { ButtonColor } from "../Button/Button";
 import Counter from "../Counter/Counter";
+import { Icons } from '../../constant/icon.constant';
 
 export default function Comment() {
   return (
@@ -15,7 +17,7 @@ export default function Comment() {
       </p>
       <div className='flex justify-between'>
         <Counter value={12} />
-        <button className='font-bold text-moderate-blue'>Reply</button>
+        <Button label="Reply" color={ButtonColor.PRIMARY} icon={Icons.reply} />
       </div>
     </div>
   );
