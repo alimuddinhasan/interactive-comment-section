@@ -12,6 +12,7 @@ interface IButtonProps {
   icon?: string;
   color?: ButtonColor;
   isFlat?: boolean;
+  dataTestId?: string;
   className?: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
@@ -33,6 +34,7 @@ export default function Button({
   label,
   icon,
   isFlat,
+  dataTestId,
   className,
   onClick,
 }: IButtonProps) {
@@ -44,12 +46,9 @@ export default function Button({
     <button
       className={`${classes} ${className && className}`}
       onClick={onClick}
+      data-testid={dataTestId}
     >
-      {icon && (
-        <div className="w-4">
-          <img src={icon} alt="icon" />
-        </div>
-      )}
+      {icon && <img src={icon} alt='icon' />}
       {label && label}
     </button>
   );

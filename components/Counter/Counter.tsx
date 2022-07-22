@@ -2,6 +2,8 @@ import Image from "next/image";
 import React from "react";
 import iconPlus from "assets/icon-plus.svg";
 import iconMinus from "assets/icon-minus.svg";
+import Button from "../Button/Button";
+import { Icons } from '../../constant/icon.constant';
 
 interface ICounterProps {
   value: number;
@@ -16,13 +18,9 @@ export default function Counter({
 }: ICounterProps) {
   return (
     <div className='flex justify-between items-center gap-3 bg-light-gray py-2 px-4 rounded-xl'>
-      <button className='font-bold flex items-center' onClick={onIncrease} data-testid="button-plus">
-        <Image src={iconPlus} alt="icon-plus" />
-      </button>
+      <Button icon={Icons.plus} dataTestId="button-plus" />
       <p className='text-moderate-blue'>{value}</p>
-      <button className='font-bold flex items-center' onClick={onDecrease} data-testid="button-minus">
-        <Image src={iconMinus} alt="icon-minus" />
-      </button>
+      <Button icon={Icons.minus} dataTestId="button-minus" />
     </div>
   );
 }
