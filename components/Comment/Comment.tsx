@@ -24,7 +24,7 @@ export default function Comment() {
       </p>
       <div className='flex justify-between'>
         <Vote value={12} />
-        <Button label='Reply' color={ButtonColor.PRIMARY} icon={Icons.reply} />
+        <Button label='Reply' color={ButtonColor.PRIMARY} icon={Icons.reply} isFlat />
       </div>
     </div>
   );
