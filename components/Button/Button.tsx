@@ -17,14 +17,14 @@ interface IButtonProps {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const getTextColor = (color: ButtonColor | undefined) => {
+const getColor = (color: ButtonColor | undefined, type: "bg" | "text") => {
   switch (color) {
     case ButtonColor.PRIMARY:
-      return "text-moderate-blue";
+      return `${type}-moderate-blue`;
     case ButtonColor.DANGER:
-      return "text-soft-red";
+      return `${type}-soft-red`;
     default:
-      return "text-grayish-blue";
+      return `${type}-grayish-blue`;
   }
 };
 
@@ -37,9 +37,13 @@ export default function Button({
   className,
   onClick,
 }: IButtonProps) {
-  let classes = "font-bold flex gap-2 items-center";
+  let classes = "font-bold flex gap-2 items-center py-2 px-4";
 
-  classes += ` ${getTextColor(color)}`;
+  classes += ` ${getColor(color, isFlat ? "text" : "bg")}`;
+
+  if (!isFlat) {
+    classes += " text-very-light-gray rounded-xl"
+  }
 
   return (
     <button

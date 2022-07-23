@@ -11,12 +11,18 @@ interface IVoteProps {
 
 export default function Vote({ value, onIncrease, onDecrease }: IVoteProps) {
   return (
-    <div className='flex justify-between items-center gap-3 bg-light-gray py-2 px-4 rounded-xl'>
-      <Button icon={Icons.plus} dataTestId='button-plus' onClick={onIncrease} />
+    <div className='flex justify-between items-center bg-light-gray rounded-xl'>
+      <Button
+        icon={Icons.plus}
+        dataTestId='button-plus'
+        isFlat
+        onClick={onIncrease}
+      />
       <p className='text-moderate-blue'>{value}</p>
       <Button
         icon={Icons.minus}
         dataTestId='button-minus'
+        isFlat
         onClick={onDecrease}
       />
     </div>
