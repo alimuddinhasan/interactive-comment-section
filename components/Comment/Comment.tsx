@@ -1,6 +1,6 @@
 import React from "react";
 import Button, { ButtonColor } from "../Button/Button";
-import Counter from "../Counter/Counter";
+import Vote from "../Vote/Vote";
 import { Icons } from "../../constant/icon.constant";
 
 export default function Comment() {
@@ -23,7 +23,7 @@ export default function Comment() {
         mollit irure ipsum dolor.
       </p>
       <div className='flex justify-between'>
-        <Counter value={12} />
+        <Vote value={12} />
         <Button label='Reply' color={ButtonColor.PRIMARY} icon={Icons.reply} />
       </div>
     </div>

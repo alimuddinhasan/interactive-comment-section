@@ -18,7 +18,6 @@ interface IButtonProps {
 }
 
 const getTextColor = (color: ButtonColor | undefined) => {
-  console.log("color");
   switch (color) {
     case ButtonColor.PRIMARY:
       return "text-moderate-blue";
