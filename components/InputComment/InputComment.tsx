@@ -3,13 +3,21 @@ import Button, { ButtonColor } from "../Button/Button";
 
 export default function InputComment() {
   return (
-    <div className='flex flex-col bg-very-light-gray gap-3 p-4 rounded-xl'>
+    <div className='flex flex-col md:flex-row md:items-start bg-very-light-gray gap-3 p-4 rounded-xl'>
+      <div className='hidden md:block h-9 shrink-0'>
+        <img
+          src='/assets/avatars/image-amyrobson.png'
+          alt='input-user-image'
+          className='h-full'
+        />
+      </div>
       <textarea
-        className='bg-transparent rounded-xl border border-light-gray p-5'
+        className='bg-transparent rounded-xl border border-light-gray p-5 grow'
         placeholder='Add a comment'
       ></textarea>
-      <div className='flex justify-between items-center'>
-        <div className='h-9'>
+      <Button color={ButtonColor.PRIMARY} label='SEND' className="hidden md:flex" />
+      <div className='flex justify-between items-center md:hidden'>
+        <div className='h-9 shrink-0'>
           <img
             src='/assets/avatars/image-amyrobson.png'
             alt='input-user-image'
