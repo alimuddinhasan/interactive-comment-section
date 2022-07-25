@@ -42,6 +42,7 @@ export default function Comment({ children }: ICommentProps) {
           />
         </div>
       </div>
+      <InputComment />
       {children && (
         <div
           className='flex flex-col gap-5 border-l border-light-grayish-blue pl-5 ml-5'
@@ -50,7 +51,6 @@ export default function Comment({ children }: ICommentProps) {
           {children}
         </div>
       )}
-      <InputComment />
     </Fragment>
   );
 }
