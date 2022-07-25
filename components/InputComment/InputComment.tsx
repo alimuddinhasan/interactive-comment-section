@@ -12,7 +12,7 @@ export default function InputComment() {
         <div className='h-9'>
           <img
             src='/assets/avatars/image-amyrobson.png'
-            alt='comment-user-image'
+            alt='input-user-image'
             className='h-full'
           />
         </div>
