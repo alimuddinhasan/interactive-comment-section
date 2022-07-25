@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 import Head from "next/head";
 import Comment from "@/components/Comment/Comment";
-import InputComment from "@/components/InputComment/InputComment";
 
 export default function Home() {
   return (
@@ -25,10 +24,9 @@ export default function Home() {
             username='test'
           />
         </Comment>
-        <InputComment />
       </main>
 
-      <footer className='text-xs text-center mt-5'>
+      <footer className='text-xs text-center my-5'>
         Challenge by&nbsp;
         <a href='https://www.frontendmentor.io?ref=challenge' target='_blank'>
           Frontend Mentor
