@@ -11,7 +11,7 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className='p-5 flex flex-col gap-5'>
+      <main className='p-5 flex flex-col gap-5 max-w-3xl'>
         <Comment
           avatar='test'
           comment='test'
