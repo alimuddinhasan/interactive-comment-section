@@ -47,7 +47,7 @@ export default function Button({
 
   return (
     <button
-      className={`${classes} ${className && className}`}
+      className={`${classes} ${className || ''}`}
       onClick={onClick}
       data-testid={dataTestId}
     >
