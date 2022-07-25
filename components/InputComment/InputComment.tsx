@@ -12,7 +12,7 @@ export default function InputComment() {
         />
       </div>
       <textarea
-        className='bg-transparent rounded-xl border border-light-gray p-5 grow'
+        className='bg-transparent rounded-xl border border-light-gray p-5 grow resize-none'
         placeholder='Add a comment'
       ></textarea>
       <Button color={ButtonColor.PRIMARY} label='SEND' className="hidden md:flex" />
