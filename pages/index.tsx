@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import Head from "next/head";
 import Comment from "@/components/Comment/Comment";
+import InputComment from "@/components/InputComment/InputComment";
 
 export default function Home() {
   return (
@@ -10,8 +11,9 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className="p-5">
+      <main className='p-5 flex flex-col gap-5'>
         <Comment />
+        <InputComment />
       </main>
 
       <footer className='text-xs text-center mt-5'>
