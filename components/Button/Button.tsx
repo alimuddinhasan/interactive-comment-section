@@ -42,12 +42,12 @@ export default function Button({
   classes += ` ${getColor(color, isFlat ? "text" : "bg")}`;
 
   if (!isFlat) {
-    classes += " text-very-light-gray rounded-xl"
+    classes += " text-very-light-gray rounded-xl";
   }
 
   return (
     <button
-      className={`${classes} ${className || ''}`}
+      className={`${classes} ${className || ""}`}
       onClick={onClick}
       data-testid={dataTestId}
     >

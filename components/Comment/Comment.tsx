@@ -15,24 +15,36 @@ interface ICommentProps {
 export default function Comment({ children }: ICommentProps) {
   return (
     <Fragment>
-      <div className='bg-very-light-gray flex flex-col gap-5 p-5 rounded-xl'>
-        <div className='flex gap-5 items-center'>
-          <div className='h-9 shrink-0'>
-            <img
-              src='/assets/avatars/image-amyrobson.png'
-              alt='comment-user-image'
-              className='h-full'
+      <div className='bg-very-light-gray flex flex-col md:flex-row gap-5 p-5 rounded-xl'>
+        <Vote className='hidden md:flex' value={12} />
+        <div className='flex flex-col gap-5'>
+          <div className='flex justify-between items-center'>
+            <div className='flex gap-5 items-center'>
+              <div className='h-9 shrink-0'>
+                <img
+                  src='/assets/avatars/image-amyrobson.png'
+                  alt='comment-user-image'
+                  className='h-full'
+                />
+              </div>
+              <p className='font-bold text-dark-blue'>amyrobson</p>
+              <p className='text-grayish-blue'>1 month ago</p>
+            </div>
+            <Button
+              className='hidden md:flex'
+              label='Reply'
+              color={ButtonColor.PRIMARY}
+              icon={Icons.reply}
+              isFlat
             />
           </div>
-          <p className='font-bold text-dark-blue'>amyrobson</p>
-          <p className='text-grayish-blue'>1 month ago</p>
+          <p className='text-grayish-blue'>
+            Ipsum enim culpa non laborum ullamco ad culpa veniam nostrud veniam
+            id ipsum velit. Aliqua laborum sint ex officia reprehenderit esse
+            esse mollit irure ipsum dolor.
+          </p>
         </div>
-        <p className='text-grayish-blue'>
-          Ipsum enim culpa non laborum ullamco ad culpa veniam nostrud veniam id
-          ipsum velit. Aliqua laborum sint ex officia reprehenderit esse esse
-          mollit irure ipsum dolor.
-        </p>
-        <div className='flex justify-between'>
+        <div className='flex justify-between md:hidden'>
           <Vote value={12} />
           <Button
             label='Reply'
