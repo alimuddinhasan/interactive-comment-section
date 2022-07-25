@@ -2,6 +2,7 @@ import React, { ReactNode, Fragment } from "react";
 import Button, { ButtonColor } from "../Button/Button";
 import Vote from "../Vote/Vote";
 import { Icons } from "../../constant/icon.constant";
+import InputComment from "../InputComment/InputComment";
 
 interface ICommentProps {
   avatar: string;
@@ -42,10 +43,14 @@ export default function Comment({ children }: ICommentProps) {
         </div>
       </div>
       {children && (
-        <div className='flex flex-col gap-5 border-l border-light-grayish-blue pl-5 ml-5' data-testid='children'>
+        <div
+          className='flex flex-col gap-5 border-l border-light-grayish-blue pl-5 ml-5'
+          data-testid='children'
+        >
           {children}
         </div>
       )}
+      <InputComment />
     </Fragment>
   );
 }
