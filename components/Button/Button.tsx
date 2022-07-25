@@ -37,7 +37,7 @@ export default function Button({
   className,
   onClick,
 }: IButtonProps) {
-  let classes = "font-bold flex gap-2 items-center py-2 px-4";
+  let classes = "font-medium flex gap-2 items-center py-2 px-4";
 
   classes += ` ${getColor(color, isFlat ? "text" : "bg")}`;
 
