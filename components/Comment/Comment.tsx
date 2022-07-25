@@ -16,7 +16,7 @@ export default function Comment({ children }: ICommentProps) {
     <Fragment>
       <div className='bg-very-light-gray flex flex-col gap-5 p-5 rounded-xl'>
         <div className='flex gap-5 items-center'>
-          <div className='h-9'>
+          <div className='h-9 shrink-0'>
             <img
               src='/assets/avatars/image-amyrobson.png'
               alt='comment-user-image'
