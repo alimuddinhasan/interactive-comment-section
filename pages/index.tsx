@@ -12,7 +12,19 @@ export default function Home() {
       </Head>
 
       <main className='p-5 flex flex-col gap-5'>
-        <Comment />
+        <Comment
+          avatar='test'
+          comment='test'
+          timestamp={new Date()}
+          username='test'
+        >
+          <Comment
+            avatar='test'
+            comment='test'
+            timestamp={new Date()}
+            username='test'
+          />
+        </Comment>
         <InputComment />
       </main>
 
