@@ -6,22 +6,26 @@ describe("Comment", () => {
   it("should render default Comment component", () => {
     render(
       <Comment
-        avatar='test'
-        comment='test'
-        timestamp={new Date()}
-        username='test'
+        avatar='avatar'
+        comment='comment'
+        timestamp='timestamp'
+        username='username'
+        score={33}
       />
     );
-    expect(screen.getByText("amyrobson")).toBeInTheDocument();
+    expect(screen.getByText("username")).toBeInTheDocument();
+    expect(screen.getByText("timestamp")).toBeInTheDocument();
+    expect(screen.getByText("comment")).toBeInTheDocument();
   });
 
   it("should render with children", () => {
     render(
       <Comment
-        avatar='test'
-        comment='test'
-        timestamp={new Date()}
-        username='test'
+        avatar='avatar'
+        comment='comment'
+        timestamp='timestamp'
+        username='username'
+        score={33}
       >
         <p>Test</p>
       </Comment>
@@ -32,10 +36,11 @@ describe("Comment", () => {
   it("should hide input component", () => {
     render(
       <Comment
-        avatar='test'
-        comment='test'
-        timestamp={new Date()}
-        username='test'
+        avatar='avatar'
+        comment='comment'
+        timestamp='timestamp'
+        username='username'
+        score={33}
       >
         <p>Test</p>
       </Comment>
@@ -46,10 +51,11 @@ describe("Comment", () => {
   it("should show input component", async () => {
     render(
       <Comment
-        avatar='test'
-        comment='test'
-        timestamp={new Date()}
-        username='test'
+        avatar='avatar'
+        comment='comment'
+        timestamp='timestamp'
+        username='username'
+        score={33}
       >
         <p>Test</p>
       </Comment>
@@ -64,16 +70,17 @@ describe("Comment", () => {
     const submitHandler = jest.fn();
     render(
       <Comment
-        avatar='test'
-        comment='test'
-        timestamp={new Date()}
-        username='test'
+        avatar='avatar'
+        comment='comment'
+        timestamp='timestamp'
+        username='username'
         onSubmit={submitHandler}
+        score={33}
       >
         <p>Test</p>
       </Comment>
     );
-    
+
     const buttonReply = screen.getByTestId("button-reply");
     await userEvent.click(buttonReply);
     const buttonSubmit = screen.getByTestId("button-submit");

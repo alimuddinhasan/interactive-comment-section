@@ -23,35 +23,25 @@ export default function Home() {
       <main className='p-5 flex flex-col gap-5 max-w-3xl'>
         {comments.map((comment) => (
           <Comment
-            avatar='test'
-            comment='test'
-            timestamp={new Date()}
-            username='test'
+            avatar={comment.user.image.png}
+            comment={comment.content}
+            timestamp={comment.createdAt}
+            username={comment.user.username}
+            score={comment.score}
             key={comment.id}
           >
-            {comment.replies?.length ? (
+            {comment.replies?.map((reply) => (
               <Comment
-                avatar='test'
-                comment='test'
-                timestamp={new Date()}
-                username='test'
+                avatar={reply.user.image.png}
+                comment={reply.content}
+                timestamp={reply.createdAt}
+                score={reply.score}
+                username={reply.user.username}
+                key={reply.id}
               />
-            ) : null}
+            ))}
           </Comment>
         ))}
-        {/* <Comment
-          avatar='test'
-          comment='test'
-          timestamp={new Date()}
-          username='test'
-        >
-          <Comment
-            avatar='test'
-            comment='test'
-            timestamp={new Date()}
-            username='test'
-          />
-        </Comment> */}
         <InputComment />
       </main>
 

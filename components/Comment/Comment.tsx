@@ -7,30 +7,35 @@ import InputComment from "../InputComment/InputComment";
 interface ICommentProps {
   avatar: string;
   username: string;
-  timestamp: Date;
+  timestamp: string;
   comment: string;
+  score: number;
   children?: ReactNode;
   onSubmit?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export default function Comment({ children, onSubmit }: ICommentProps) {
+export default function Comment({
+  avatar,
+  username,
+  timestamp,
+  comment,
+  children,
+  score,
+  onSubmit,
+}: ICommentProps) {
   const [showInput, setShowInput] = useState(false);
   return (
     <Fragment>
       <div className='bg-very-light-gray flex flex-col md:flex-row gap-5 p-5 rounded-xl'>
-        <Vote className='hidden md:flex' value={12} />
+        <Vote className='hidden md:flex' value={score} />
         <div className='flex flex-col gap-5'>
           <div className='flex justify-between items-center'>
             <div className='flex gap-5 items-center'>
               <div className='h-9 shrink-0'>
-                <img
-                  src='/assets/avatars/image-amyrobson.png'
-                  alt='comment-user-image'
-                  className='h-full'
-                />
+                <img src={avatar} alt='comment-user-image' className='h-full' />
               </div>
-              <p className='font-bold text-dark-blue'>amyrobson</p>
-              <p className='text-grayish-blue'>1 month ago</p>
+              <p className='font-bold text-dark-blue'>{username}</p>
+              <p className='text-grayish-blue'>{timestamp}</p>
             </div>
             <Button
               className='hidden md:flex'
@@ -40,14 +45,10 @@ export default function Comment({ children, onSubmit }: ICommentProps) {
               isFlat
             />
           </div>
-          <p className='text-grayish-blue'>
-            Ipsum enim culpa non laborum ullamco ad culpa veniam nostrud veniam
-            id ipsum velit. Aliqua laborum sint ex officia reprehenderit esse
-            esse mollit irure ipsum dolor.
-          </p>
+          <p className='text-grayish-blue'>{comment}</p>
         </div>
         <div className='flex justify-between md:hidden'>
-          <Vote value={12} />
+          <Vote value={score} />
           <Button
             label='Reply'
             color={ButtonColor.PRIMARY}
