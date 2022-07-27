@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import Comment from "../Comment";
 
 describe("Comment", () => {
@@ -42,18 +43,20 @@ describe("Comment", () => {
     expect(screen.queryByTestId("input-comment-component")).toBeNull();
   });
 
-  it("should show input component", () => {
+  it("should show input component", async () => {
     render(
       <Comment
         avatar='test'
         comment='test'
         timestamp={new Date()}
         username='test'
-        showInput
       >
         <p>Test</p>
       </Comment>
     );
+
+    const buttonReply = screen.getByTestId("button-reply");
+    await userEvent.click(buttonReply);
     expect(screen.queryByTestId("input-comment-component")).not.toBeNull();
   });
 });

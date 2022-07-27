@@ -1,4 +1,4 @@
-import React, { ReactNode, Fragment } from "react";
+import React, { ReactNode, Fragment, useState } from "react";
 import Button, { ButtonColor } from "../Button/Button";
 import Vote from "../Vote/Vote";
 import { Icons } from "../../constant/icon.constant";
@@ -10,13 +10,10 @@ interface ICommentProps {
   timestamp: Date;
   comment: string;
   children?: ReactNode;
-  showInput?: boolean;
 }
 
-export default function Comment({
-  children,
-  showInput = false,
-}: ICommentProps) {
+export default function Comment({ children }: ICommentProps) {
+  const [showInput, setShowInput] = useState(false);
   return (
     <Fragment>
       <div className='bg-very-light-gray flex flex-col md:flex-row gap-5 p-5 rounded-xl'>
@@ -55,6 +52,10 @@ export default function Comment({
             color={ButtonColor.PRIMARY}
             icon={Icons.reply}
             isFlat
+            dataTestId="button-reply"
+            onClick={() => {
+              setShowInput(true);
+            }}
           />
         </div>
       </div>
