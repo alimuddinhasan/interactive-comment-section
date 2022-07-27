@@ -3,9 +3,13 @@ import Button, { ButtonColor } from "../Button/Button";
 
 interface IInputCommentProps {
   dataTestId?: string;
+  onSubmit?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export default function InputComment({ dataTestId }: IInputCommentProps) {
+export default function InputComment({
+  dataTestId,
+  onSubmit,
+}: IInputCommentProps) {
   return (
     <div
       className='flex flex-col md:flex-row md:items-start bg-very-light-gray gap-3 p-4 rounded-xl'
@@ -26,6 +30,7 @@ export default function InputComment({ dataTestId }: IInputCommentProps) {
         color={ButtonColor.PRIMARY}
         label='SEND'
         className='hidden md:flex'
+        onClick={onSubmit}
       />
       <div className='flex justify-between items-center md:hidden'>
         <div className='h-9 shrink-0'>
@@ -35,7 +40,7 @@ export default function InputComment({ dataTestId }: IInputCommentProps) {
             className='h-full'
           />
         </div>
-        <Button color={ButtonColor.PRIMARY} label='SEND' />
+        <Button color={ButtonColor.PRIMARY} label='SEND' onClick={onSubmit} />
       </div>
     </div>
   );
