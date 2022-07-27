@@ -17,14 +17,25 @@ interface IButtonProps {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const getColor = (color: ButtonColor | undefined, type: "bg" | "text") => {
+const getBackgroundColor = (color: ButtonColor | undefined) => {
   switch (color) {
     case ButtonColor.PRIMARY:
-      return `${type}-moderate-blue`;
+      return `bg-moderate-blue`;
     case ButtonColor.DANGER:
-      return `${type}-soft-red`;
+      return `bg-soft-red`;
     default:
-      return `${type}-grayish-blue`;
+      return `bg-grayish-blue`;
+  }
+};
+
+const getTextColor = (color: ButtonColor | undefined) => {
+  switch (color) {
+    case ButtonColor.PRIMARY:
+      return `text-moderate-blue`;
+    case ButtonColor.DANGER:
+      return `text-soft-red`;
+    default:
+      return `text-grayish-blue`;
   }
 };
 
@@ -39,10 +50,10 @@ export default function Button({
 }: IButtonProps) {
   let classes = "font-medium flex gap-2 items-center py-2 px-4";
 
-  classes += ` ${getColor(color, isFlat ? "text" : "bg")}`;
-
   if (!isFlat) {
-    classes += " text-very-light-gray rounded-xl";
+    classes += ` ${getBackgroundColor(color)} text-very-light-gray rounded-xl`;
+  } else {
+    classes += ` ${getTextColor(color)}`;
   }
 
   return (
