@@ -29,14 +29,14 @@ export default function Home() {
             username='test'
             key={comment.id}
           >
-            {comment.replies?.length && (
+            {comment.replies?.length ? (
               <Comment
                 avatar='test'
                 comment='test'
                 timestamp={new Date()}
                 username='test'
               />
-            )}
+            ) : null}
           </Comment>
         ))}
         {/* <Comment
