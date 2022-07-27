@@ -5,7 +5,7 @@ describe("InputCommet", () => {
   it("should render default InputComment component", () => {
     render(<InputComment />);
     expect(screen.getByPlaceholderText("Add a comment")).toBeInTheDocument();
-    expect(screen.getByAltText("input-user-image")).toBeInTheDocument();
-    expect(screen.getByText("SEND")).toBeInTheDocument();
+    expect(screen.getAllByAltText("input-user-image").length).toEqual(2);
+    expect(screen.getAllByText("SEND").length).toEqual(2);
   });
 });
