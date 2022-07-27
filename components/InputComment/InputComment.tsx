@@ -40,7 +40,7 @@ export default function InputComment({
             className='h-full'
           />
         </div>
-        <Button color={ButtonColor.PRIMARY} label='SEND' onClick={onSubmit} />
+        <Button color={ButtonColor.PRIMARY} label='SEND' dataTestId="button-submit" onClick={onSubmit} />
       </div>
     </div>
   );

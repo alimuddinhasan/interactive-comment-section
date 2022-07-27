@@ -10,9 +10,10 @@ interface ICommentProps {
   timestamp: Date;
   comment: string;
   children?: ReactNode;
+  onSubmit?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export default function Comment({ children }: ICommentProps) {
+export default function Comment({ children, onSubmit }: ICommentProps) {
   const [showInput, setShowInput] = useState(false);
   return (
     <Fragment>
@@ -52,14 +53,19 @@ export default function Comment({ children }: ICommentProps) {
             color={ButtonColor.PRIMARY}
             icon={Icons.reply}
             isFlat
-            dataTestId="button-reply"
+            dataTestId='button-reply'
             onClick={() => {
               setShowInput(true);
             }}
           />
         </div>
       </div>
-      {showInput && <InputComment dataTestId='input-comment-component' />}
+      {showInput && (
+        <InputComment
+          dataTestId='input-comment-component'
+          onSubmit={onSubmit}
+        />
+      )}
       {children && (
         <div
           className='flex flex-col gap-5 border-l border-light-grayish-blue pl-5 ml-5'

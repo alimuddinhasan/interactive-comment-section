@@ -59,4 +59,26 @@ describe("Comment", () => {
     await userEvent.click(buttonReply);
     expect(screen.queryByTestId("input-comment-component")).not.toBeNull();
   });
+
+  it("should execute submit handler", async () => {
+    const submitHandler = jest.fn();
+    render(
+      <Comment
+        avatar='test'
+        comment='test'
+        timestamp={new Date()}
+        username='test'
+        onSubmit={submitHandler}
+      >
+        <p>Test</p>
+      </Comment>
+    );
+    
+    const buttonReply = screen.getByTestId("button-reply");
+    await userEvent.click(buttonReply);
+    const buttonSubmit = screen.getByTestId("button-submit");
+    await userEvent.click(buttonSubmit);
+
+    expect(submitHandler).toBeCalledTimes(1);
+  });
 });
