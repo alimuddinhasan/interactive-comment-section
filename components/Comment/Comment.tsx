@@ -10,9 +10,13 @@ interface ICommentProps {
   timestamp: Date;
   comment: string;
   children?: ReactNode;
+  showInput?: boolean;
 }
 
-export default function Comment({ children }: ICommentProps) {
+export default function Comment({
+  children,
+  showInput = false,
+}: ICommentProps) {
   return (
     <Fragment>
       <div className='bg-very-light-gray flex flex-col md:flex-row gap-5 p-5 rounded-xl'>
@@ -54,7 +58,7 @@ export default function Comment({ children }: ICommentProps) {
           />
         </div>
       </div>
-      <InputComment />
+      {showInput && <InputComment dataTestId='input-comment-component' />}
       {children && (
         <div
           className='flex flex-col gap-5 border-l border-light-grayish-blue pl-5 ml-5'

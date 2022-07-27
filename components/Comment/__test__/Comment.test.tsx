@@ -27,4 +27,33 @@ describe("Comment", () => {
     );
     expect(screen.getByTestId("children")).toBeInTheDocument();
   });
+
+  it("should hide input component", () => {
+    render(
+      <Comment
+        avatar='test'
+        comment='test'
+        timestamp={new Date()}
+        username='test'
+      >
+        <p>Test</p>
+      </Comment>
+    );
+    expect(screen.queryByTestId("input-comment-component")).toBeNull();
+  });
+
+  it("should show input component", () => {
+    render(
+      <Comment
+        avatar='test'
+        comment='test'
+        timestamp={new Date()}
+        username='test'
+        showInput
+      >
+        <p>Test</p>
+      </Comment>
+    );
+    expect(screen.queryByTestId("input-comment-component")).not.toBeNull();
+  });
 });
