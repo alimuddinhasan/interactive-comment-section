@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import data from "../../data/data.json";
 
+// TODO: move interfaces to another file
 interface IUser {
   image: {
     png: string;
@@ -9,7 +10,7 @@ interface IUser {
   username: string;
 }
 
-interface IComment {
+export interface IComment {
   id: number;
   content: string;
   createdAt: string;
