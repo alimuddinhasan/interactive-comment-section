@@ -12,6 +12,8 @@ interface ICommentProps {
   score: number;
   children?: ReactNode;
   onSubmit?: React.MouseEventHandler<HTMLButtonElement>;
+  onUpvote?: React.MouseEventHandler<HTMLButtonElement>;
+  onDownvote?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export default function Comment({
@@ -22,13 +24,20 @@ export default function Comment({
   children,
   score,
   onSubmit,
+  onUpvote,
+  onDownvote,
 }: ICommentProps) {
   const [showInput, setShowInput] = useState(false);
   return (
     <Fragment>
       <div className='bg-very-light-gray flex flex-col md:flex-row gap-5 p-5 rounded-xl'>
         {/* TODO: extract to function so it reusable */}
-        <Vote className='hidden md:flex' value={score} />
+        <Vote
+          className='hidden md:flex'
+          value={score}
+          onIncrease={onUpvote}
+          onDecrease={onDownvote}
+        />
         <div className='flex flex-col gap-5'>
           <div className='flex justify-between items-center'>
             <div className='flex gap-5 items-center'>
@@ -54,7 +63,7 @@ export default function Comment({
           <p className='text-grayish-blue'>{comment}</p>
         </div>
         <div className='flex justify-between md:hidden'>
-          <Vote value={score} />
+          <Vote value={score} onIncrease={onUpvote} onDecrease={onDownvote} />
           <Button
             label='Reply'
             color={ButtonColor.PRIMARY}

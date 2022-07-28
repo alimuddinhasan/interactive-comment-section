@@ -88,4 +88,46 @@ describe("Comment", () => {
 
     expect(submitHandler).toBeCalledTimes(1);
   });
+
+  it('should execute upvote handler', async () => {
+    const upvoteHandler = jest.fn();
+    render(
+      <Comment
+        avatar='avatar'
+        comment='comment'
+        timestamp='timestamp'
+        username='username'
+        onUpvote={upvoteHandler}
+        score={33}
+      >
+        <p>Test</p>
+      </Comment>
+    );
+
+    const buttonUpvote = screen.getAllByTestId("button-plus");
+    await userEvent.click(buttonUpvote[0]);
+
+    expect(upvoteHandler).toBeCalledTimes(1);
+  });
+
+  it('should execute downvote handler', async () => {
+    const downvoteHandler = jest.fn();
+    render(
+      <Comment
+        avatar='avatar'
+        comment='comment'
+        timestamp='timestamp'
+        username='username'
+        onDownvote={downvoteHandler}
+        score={33}
+      >
+        <p>Test</p>
+      </Comment>
+    );
+
+    const buttonUpvote = screen.getAllByTestId("button-minus");
+    await userEvent.click(buttonUpvote[0]);
+
+    expect(downvoteHandler).toBeCalledTimes(1);
+  });
 });
