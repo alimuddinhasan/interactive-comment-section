@@ -27,6 +27,7 @@ export default function Comment({
   return (
     <Fragment>
       <div className='bg-very-light-gray flex flex-col md:flex-row gap-5 p-5 rounded-xl'>
+        {/* TODO: extract to function so it reusable */}
         <Vote className='hidden md:flex' value={score} />
         <div className='flex flex-col gap-5'>
           <div className='flex justify-between items-center'>
@@ -37,12 +38,17 @@ export default function Comment({
               <p className='font-bold text-dark-blue'>{username}</p>
               <p className='text-grayish-blue'>{timestamp}</p>
             </div>
+            {/* TODO: extract to function so it reusable */}
             <Button
               className='hidden md:flex'
               label='Reply'
               color={ButtonColor.PRIMARY}
               icon={Icons.reply}
               isFlat
+              dataTestId='button-reply'
+              onClick={() => {
+                setShowInput(true);
+              }}
             />
           </div>
           <p className='text-grayish-blue'>{comment}</p>

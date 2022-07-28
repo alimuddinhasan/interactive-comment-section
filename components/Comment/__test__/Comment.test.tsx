@@ -61,8 +61,8 @@ describe("Comment", () => {
       </Comment>
     );
 
-    const buttonReply = screen.getByTestId("button-reply");
-    await userEvent.click(buttonReply);
+    const buttonReply = screen.getAllByTestId("button-reply");
+    await userEvent.click(buttonReply[0]);
     expect(screen.queryByTestId("input-comment-component")).not.toBeNull();
   });
 
@@ -81,8 +81,8 @@ describe("Comment", () => {
       </Comment>
     );
 
-    const buttonReply = screen.getByTestId("button-reply");
-    await userEvent.click(buttonReply);
+    const buttonReply = screen.getAllByTestId("button-reply");
+    await userEvent.click(buttonReply[0]);
     const buttonSubmit = screen.getByTestId("button-submit");
     await userEvent.click(buttonSubmit);
 
