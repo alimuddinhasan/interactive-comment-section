@@ -13,6 +13,23 @@ export default function Home() {
       setComments(data);
     });
   }, []);
+
+  const upvoteHandler = (id: number) => {
+    const newComments = [...comments];
+    const find = newComments.find((comment) => comment.id === id) as IComment;
+    find.score++;
+
+    setComments(newComments);
+  };
+
+  const downvoteHandler = (id: number) => {
+    const newComments = [...comments];
+    const find = newComments.find((comment) => comment.id === id) as IComment;
+    find.score--;
+
+    setComments(newComments);
+  };
+
   return (
     <Fragment>
       <Head>
@@ -21,23 +38,27 @@ export default function Home() {
       </Head>
 
       <main className='p-5 flex flex-col gap-5 max-w-3xl'>
-        {comments.map((comment) => (
+        {comments.map(({ user, content, createdAt, score, id, replies }) => (
           <Comment
-            avatar={comment.user.image.png}
-            comment={comment.content}
-            timestamp={comment.createdAt}
-            username={comment.user.username}
-            score={comment.score}
-            key={comment.id}
+            avatar={user.image.png}
+            comment={content}
+            timestamp={createdAt}
+            username={user.username}
+            score={score}
+            key={id}
+            onUpvote={() => upvoteHandler(id)}
+            onDownvote={() => downvoteHandler(id)}
           >
-            {comment.replies?.map((reply) => (
+            {replies?.map(({ user, content, createdAt, score, id }) => (
               <Comment
-                avatar={reply.user.image.png}
-                comment={reply.content}
-                timestamp={reply.createdAt}
-                score={reply.score}
-                username={reply.user.username}
-                key={reply.id}
+                avatar={user.image.png}
+                comment={content}
+                timestamp={createdAt}
+                score={score}
+                username={user.username}
+                key={id}
+                onUpvote={() => upvoteHandler(id)}
+                onDownvote={() => downvoteHandler(id)}
               />
             ))}
           </Comment>
