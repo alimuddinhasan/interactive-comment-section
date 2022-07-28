@@ -3,7 +3,7 @@ import Head from "next/head";
 import Comment from "@/components/Comment/Comment";
 import InputComment from "@/components/InputComment/InputComment";
 import httpClient from "utils/httpClient";
-import { IComment } from "./api/comment";
+import { IComment } from "common/type/comment.interface";
 
 export default function Home() {
   // TODO: refactor code to make it clean
