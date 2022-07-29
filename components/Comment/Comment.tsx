@@ -3,10 +3,10 @@ import Button, { ButtonColor } from "../Button/Button";
 import Vote from "../Vote/Vote";
 import { Icons } from "../../constant/icon.constant";
 import InputComment from "../InputComment/InputComment";
+import { IUser } from "common/type/user.interface";
 
 interface ICommentProps {
-  avatar: string;
-  username: string;
+  user: IUser | undefined;
   timestamp: string;
   comment: string;
   score: number;
@@ -17,8 +17,7 @@ interface ICommentProps {
 }
 
 export default function Comment({
-  avatar,
-  username,
+  user,
   timestamp,
   comment,
   children,
@@ -42,9 +41,13 @@ export default function Comment({
           <div className='flex justify-between items-center'>
             <div className='flex gap-5 items-center'>
               <div className='h-9 shrink-0'>
-                <img src={avatar} alt='comment-user-image' className='h-full' />
+                <img
+                  src={user?.image.png}
+                  alt='comment-user-image'
+                  className='h-full'
+                />
               </div>
-              <p className='font-bold text-dark-blue'>{username}</p>
+              <p className='font-bold text-dark-blue'>{user?.username}</p>
               <p className='text-grayish-blue'>{timestamp}</p>
             </div>
             {/* TODO: extract to function so it reusable */}
@@ -78,6 +81,7 @@ export default function Comment({
       </div>
       {showInput && (
         <InputComment
+          user={user}
           dataTestId='input-comment-component'
           onSubmit={onSubmit}
         />
